@@ -295,7 +295,7 @@
                 fires and give me the opportunity to do real deep work is very
                 hard to find.
               </p>
-              <p><strong>Imaan is that person.</strong></p>
+              <p>Imaan is that person.</p>
             </div>
           </article>
 
@@ -348,12 +348,7 @@
               <p>
                 In an enterprise environment, most people just look out for #1.
               </p>
-              <p>
-                <strong
-                  >Imaan's relentless focus on quality and execution was
-                  refreshing.</strong
-                >
-              </p>
+              <p>Imaan's relentless focus on quality and execution was refreshing.</p>
             </div>
           </article>
 
@@ -391,13 +386,7 @@
                 <li>Sitting with us in board rooms</li>
                 <li>Joining us on sales calls</li>
               </ul>
-              <p>
-                <strong
-                  >It's like having another founder on your team, but an
-                  objective one who just focuses on execution without
-                  politics.</strong
-                >
-              </p>
+              <p>It's like having another founder on your team, but an objective one who just focuses on execution without politics.</p>
             </div>
           </article>
         </div>
@@ -410,39 +399,39 @@
 
           <details class="faq reveal" open>
             <summary>$300/hr is expensive.</summary>
-            <div class="faq-answer">
+            <div class="faq-answer"><div class="faq-answer-inner">
               <p>A bad hire costs 6 months of salary and delays on delivery. A failed product launch can push your next fundraise back by months. I'm much cheaper than losing momentum.</p>
-            </div>
+            </div></div>
           </details>
 
           <details class="faq reveal">
             <summary>Do you have experience in my industry?</summary>
-            <div class="faq-answer">
+            <div class="faq-answer"><div class="faq-answer-inner">
               <p>Not the exact combination of stage, size, and vertical, but that's always been an advantage.</p>
               <p>I've worked from pre-seed to Fortune 500, across web3, fintech, regulated industries, ecommerce and more.</p>
               <p>Fresh eyes from adjacent industries help me spot problems that insiders miss and bring solutions you won't hear in your own circles.</p>
               <p>It's never been an issue before.</p>
-            </div>
+            </div></div>
           </details>
 
           <details class="faq reveal">
             <summary>What happens when you leave?</summary>
-            <div class="faq-answer">
+            <div class="faq-answer"><div class="faq-answer-inner">
               <p>That's the whole point. I build teams and systems that keep delivering without me.</p>
               <p>Once we've built something that works with me there, I will source, train and replace myself with a team member or a new hire to keep it running.</p>
               <p>I'm not here to create a dependency. I'm here to make myself unnecessary.</p>
-            </div>
+            </div></div>
           </details>
 
           <details class="faq reveal">
             <summary>What does working together look like?</summary>
-            <div class="faq-answer">
+            <div class="faq-answer"><div class="faq-answer-inner">
               <p>You know what the most obvious problems are, you just lack the time to solve them, so we start there.</p>
               <p><em>Q1:</em> Gaining the trust of the team by helping them secure the quick wins you've identified, while collaborating on an exciting plan for Q2.</p>
               <p><em>Q2:</em> Now we've built some momentum and confidence it's time to execute on a plan that's been properly researched and considered.</p>
               <p><em>Q3:</em> The team now knows what excellent execution looks like, so I slowly replace myself while ensuring everything keeps running smoothly.</p>
               <p>No pitch decks. No multi-month discovery phase. Just execution.</p>
-            </div>
+            </div></div>
           </details>
         </div>
       </section>
@@ -536,6 +525,25 @@
           observer.observe(el);
         });
       })();
+    </script>
+
+    <!-- FAQ Close Animation -->
+    <script>
+      document.querySelectorAll('.faq summary').forEach(function (summary) {
+        summary.addEventListener('click', function (e) {
+          var details = summary.parentElement;
+          if (details.open) {
+            e.preventDefault();
+            details.classList.add('is-closing');
+            var answer = details.querySelector('.faq-answer');
+            answer.addEventListener('transitionend', function handler() {
+              details.open = false;
+              details.classList.remove('is-closing');
+              answer.removeEventListener('transitionend', handler);
+            }, { once: true });
+          }
+        });
+      });
     </script>
 
     <!-- Scroll Nav + Progress Bar -->
