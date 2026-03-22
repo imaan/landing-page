@@ -333,18 +333,6 @@ section {
   margin-bottom: 0;
 }
 
-.hero-bold-phrase {
-  font-style: italic;
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 2px;
-  transition: text-decoration-color 300ms var(--ease-out-quart);
-}
-
-.hero-bold-phrase:hover {
-  text-decoration-color: var(--text);
-}
 
 /* ============================================
    Clients
@@ -931,10 +919,6 @@ section {
   .cta .btn.is-visible .btn-text {
     transform: none !important;
     transition: none !important;
-  }
-
-  .hero-bold-phrase {
-    transition: none;
   }
 
   .header-avatar {
