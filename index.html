@@ -35,16 +35,7 @@
       content="https://imaan.co/assets/images/og-image.png"
     />
     <link href="assets/images/favicon.svg" rel="icon" />
-    <meta
-      name="theme-color"
-      content="#0a0a0a"
-      media="(prefers-color-scheme: dark)"
-    />
-    <meta
-      name="theme-color"
-      content="#fcfcfa"
-      media="(prefers-color-scheme: light)"
-    />
+    <meta name="theme-color" content="#0a0a0a" />
     <link rel="canonical" href="https://imaan.co/" />
 
     <!-- Fonts -->
@@ -85,6 +76,8 @@
             ? "light"
             : "dark");
         document.documentElement.setAttribute("data-theme", theme);
+        var tc = document.querySelector('meta[name="theme-color"]');
+        if (tc) tc.setAttribute("content", theme === "light" ? "#fcfcfa" : "#0a0a0a");
       })();
     </script>
   </head>
@@ -109,7 +102,7 @@
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: var(--space-sm)">
+        <div class="header-actions">
           <button class="theme-toggle" aria-label="Toggle light/dark mode">
             <svg
               class="icon-moon"
@@ -619,6 +612,8 @@
           var next = current === "dark" ? "light" : "dark";
           document.documentElement.setAttribute("data-theme", next);
           localStorage.setItem("theme", next);
+          var tc = document.querySelector('meta[name="theme-color"]');
+          if (tc) tc.setAttribute("content", next === "light" ? "#fcfcfa" : "#0a0a0a");
         });
     </script>
 
@@ -658,15 +653,15 @@
             e.preventDefault();
             details.classList.add("is-closing");
             var answer = details.querySelector(".faq-answer");
-            answer.addEventListener(
-              "transitionend",
-              function handler() {
-                details.open = false;
-                details.classList.remove("is-closing");
-                answer.removeEventListener("transitionend", handler);
-              },
-              { once: true },
-            );
+            var closed = false;
+            function close() {
+              if (closed) return;
+              closed = true;
+              details.open = false;
+              details.classList.remove("is-closing");
+            }
+            answer.addEventListener("transitionend", close, { once: true });
+            setTimeout(close, 350);
           }
         });
       });
