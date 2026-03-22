@@ -199,7 +199,7 @@ section {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: var(--space-sm);
   min-height: 44px;
   min-width: 44px;
   display: inline-flex;
@@ -446,26 +446,6 @@ section {
   margin-bottom: var(--space-sm);
 }
 
-.case-study-details ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  margin-top: var(--space-sm);
-}
-
-.case-study-details li {
-  padding-left: var(--space-lg);
-  position: relative;
-}
-
-.case-study-details li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  opacity: 0.5;
-}
-
 /* ============================================
    Testimonials
    ============================================ */
@@ -537,11 +517,6 @@ section {
 
 .testimonial-body p { margin-bottom: var(--space-md); }
 .testimonial-body p:last-child { margin-bottom: 0; }
-
-.testimonial-body strong {
-  color: var(--text);
-  font-weight: 500;
-}
 
 .testimonial-body ul {
   list-style: none;
