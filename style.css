@@ -259,6 +259,11 @@ section {
   font-weight: 500;
   line-height: 1.7;
   max-width: 55ch;
+  margin-bottom: var(--space-sm);
+}
+
+.hero-solution:last-child {
+  margin-bottom: 0;
 }
 
 /* ============================================
