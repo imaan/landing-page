@@ -75,6 +75,18 @@
     </script>
 
     <link rel="stylesheet" href="style.css" />
+    <script>
+      // Apply theme before render to prevent flash
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var theme =
+          saved ||
+          (window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -96,9 +108,46 @@
           </div>
         </div>
 
-        <a class="btn" href="https://cal.com/imaan/connect" rel="noopener"
-          >Book a Call</a
-        >
+        <div style="display: flex; align-items: center; gap: var(--space-sm)">
+          <button class="theme-toggle" aria-label="Toggle light/dark mode">
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+          <a
+            class="btn btn-ghost"
+            href="https://cal.com/imaan/connect"
+            rel="noopener"
+            >Book a Call</a
+          >
+        </div>
       </div>
     </header>
 
@@ -110,8 +159,8 @@
             Things aren't working.<br />Bring me in.
           </h1>
           <p class="hero-tagline reveal">
-            I put out fires at remote B2B SaaS companies so leadership teams
-            can get real work done.
+            I put out fires at remote B2B SaaS companies so leadership teams can
+            get real work done.
           </p>
           <ul class="hero-problems reveal">
             <li>Product launch months behind schedule</li>
@@ -158,6 +207,14 @@
           <h2 id="cases-heading" class="reveal">Case Studies</h2>
 
           <article class="case-study reveal">
+            <img
+              class="case-study-img case-study-img--invert"
+              src="assets/images/case-provable.png"
+              alt="Provable"
+              width="600"
+              height="338"
+              loading="lazy"
+            />
             <h3>Provable</h3>
             <div class="case-study-details">
               <p>
@@ -174,6 +231,14 @@
           </article>
 
           <article class="case-study reveal">
+            <img
+              class="case-study-img"
+              src="assets/images/case-spotify.png"
+              alt="Spotify"
+              width="600"
+              height="338"
+              loading="lazy"
+            />
             <h3>Spotify</h3>
             <div class="case-study-details">
               <p>
@@ -190,6 +255,14 @@
           </article>
 
           <article class="case-study reveal">
+            <img
+              class="case-study-img"
+              src="assets/images/case-fca-hsf.png"
+              alt="The FCA and Herbert Smith Freehills"
+              width="600"
+              height="338"
+              loading="lazy"
+            />
             <h3>The FCA + Herbert Smith Freehills</h3>
             <div class="case-study-details">
               <p>
@@ -200,8 +273,8 @@
                 <em>What I did:</em> Coded MVPs, ran design sprints, navigated
                 complex enterprise deployments. We built the first in-firm
                 software for the UK's leading litigation firm, who then re-sold
-                our services to The FCA, who needed an app taking from idea to
-                deployment in 8 weeks.
+                our services to The FCA. There we built out a location-based app
+                from idea to deployment in just 8 weeks.
               </p>
               <p><em>Timeline:</em> 8-12 weeks</p>
             </div>
@@ -365,7 +438,7 @@
           <h2 id="faqs-heading" class="reveal">FAQs</h2>
 
           <article class="faq reveal">
-            <h3>"$300/hr is expensive."</h3>
+            <h3>$300/hr is expensive.</h3>
             <div class="faq-body">
               <p>
                 A bad hire costs 6 months of salary and delays on delivery. A
@@ -376,7 +449,7 @@
           </article>
 
           <article class="faq reveal">
-            <h3>"Do you have experience in my industry?"</h3>
+            <h3>Do you have experience in my industry?</h3>
             <div class="faq-body">
               <p>
                 Not the exact combination of stage, size, and vertical, but
@@ -396,7 +469,7 @@
           </article>
 
           <article class="faq reveal">
-            <h3>"What happens when you leave?"</h3>
+            <h3>What happens when you leave?</h3>
             <div class="faq-body">
               <p>
                 That's the whole point. I build teams and systems that keep
@@ -415,7 +488,7 @@
           </article>
 
           <article class="faq reveal">
-            <h3>"What does working together look like?"</h3>
+            <h3>What does working together look like?</h3>
             <div class="faq-body">
               <p>
                 You know what the most obvious problems are, you just lack the
@@ -470,6 +543,18 @@
         </div>
       </section>
     </main>
+
+    <!-- Theme Toggle -->
+    <script>
+      document
+        .querySelector(".theme-toggle")
+        .addEventListener("click", function () {
+          var current = document.documentElement.getAttribute("data-theme");
+          var next = current === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+        });
+    </script>
 
     <!-- Scroll Reveal -->
     <script>
