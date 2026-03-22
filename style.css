@@ -379,18 +379,23 @@ section {
 }
 
 .case-study {
-  padding: var(--space-xl) 0;
+  padding: var(--space-md) 0;
 }
 
 .case-study:last-child {
   padding-bottom: 0;
 }
 
-.case-study-img {
+.case-study-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.case-study-card img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
-  margin-bottom: var(--space-lg);
+  display: block;
 }
 
 .case-study-img--invert {
@@ -401,7 +406,11 @@ section {
   filter: none;
 }
 
-.case-study h3 {
+.case-study-card-body {
+  padding: var(--space-lg);
+}
+
+.case-study-card-body h3 {
   margin-bottom: var(--space-md);
 }
 
@@ -477,6 +486,16 @@ section {
   flex-shrink: 0;
 }
 
+.testimonial-pullquote {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: var(--space-lg);
+}
+
 .testimonial-meta h3 {
   margin-bottom: 2px;
 }
@@ -549,26 +568,50 @@ section {
   padding-bottom: 0;
 }
 
-.faq h3 {
-  margin-bottom: var(--space-lg);
+.faq summary {
+  font-family: var(--font-heading);
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.faq-body {
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  margin-left: var(--space-md);
+}
+
+.faq[open] summary::after {
+  content: '\2212';
+}
+
+.faq-answer {
   font-size: 15px;
   line-height: 1.7;
   color: var(--text-secondary);
   max-width: 55ch;
+  padding-top: var(--space-md);
 }
 
-.faq-body p {
+.faq-answer p {
   margin-bottom: var(--space-sm);
 }
 
-.faq-body p:last-child {
+.faq-answer p:last-child {
   margin-bottom: 0;
 }
 
-.faq-body em {
+.faq-answer em {
   font-style: normal;
   font-weight: 600;
   color: var(--text);
@@ -638,6 +681,77 @@ section {
 }
 
 /* ============================================
+   Scroll Progress Bar
+   ============================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 20;
+}
+
+/* ============================================
+   Scroll Dot Nav
+   ============================================ */
+.scroll-nav {
+  position: fixed;
+  right: var(--space-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.scroll-nav-dot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-direction: row-reverse;
+  text-decoration: none;
+}
+
+.scroll-nav-dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+  transition: all 200ms var(--ease-out-quart);
+}
+
+[data-theme="light"] .scroll-nav-dot::after {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.scroll-nav-dot.is-active::after {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+}
+
+.scroll-nav-label {
+  font-size: 11px;
+  font-family: var(--font-heading);
+  color: var(--text-secondary);
+  opacity: 0;
+  transition: opacity 200ms;
+  white-space: nowrap;
+}
+
+.scroll-nav:hover .scroll-nav-label {
+  opacity: 1;
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 809px) {
@@ -669,6 +783,10 @@ section {
 
   .testimonial-body {
     font-size: 14px;
+  }
+
+  .scroll-nav {
+    display: none;
   }
 
 }
