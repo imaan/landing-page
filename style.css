@@ -707,15 +707,15 @@ section {
    Scroll Progress Bar
    ============================================ */
 .scroll-progress {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 2px;
   background: var(--accent);
   transform-origin: left;
   transform: scaleX(0);
-  z-index: 20;
+  z-index: 1;
   display: none;
 }
 
@@ -764,7 +764,7 @@ section {
 .scroll-nav-dot.is-active::after {
   width: 8px;
   height: 8px;
-  background: var(--accent);
+  background: var(--text);
 }
 
 .scroll-nav-label {
@@ -827,7 +827,13 @@ section {
   .scroll-nav {
     display: none;
   }
+}
 
+@media (min-width: 810px) and (max-width: 1199px) {
+  .scroll-nav-label {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* ============================================
