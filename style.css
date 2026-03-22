@@ -164,11 +164,20 @@ section {
   flex-shrink: 0;
 }
 
+.header-identity {
+  cursor: pointer;
+}
+
 .header-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  transition: transform 300ms var(--ease-out-quart);
+}
+
+.header-identity:hover .header-avatar {
+  transform: scale(1.05);
 }
 
 .header-name-group {
@@ -219,11 +228,22 @@ section {
   height: 18px;
 }
 
-.theme-toggle .icon-moon { display: block; }
-.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon,
+.theme-toggle .icon-sun {
+  transition: transform 400ms var(--ease-out-expo), opacity 300ms var(--ease-out-quart);
+}
 
-[data-theme="light"] .theme-toggle .icon-moon { display: none; }
-[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+.theme-toggle .icon-moon { display: block; opacity: 1; transform: rotate(0deg) scale(1); }
+.theme-toggle .icon-sun { display: none; opacity: 0; transform: rotate(-90deg) scale(0.5); }
+
+[data-theme="light"] .theme-toggle .icon-moon { display: none; opacity: 0; transform: rotate(90deg) scale(0.5); }
+[data-theme="light"] .theme-toggle .icon-sun { display: block; opacity: 1; transform: rotate(0deg) scale(1); }
+
+.theme-toggle.is-switching .icon-moon,
+.theme-toggle.is-switching .icon-sun {
+  display: block !important;
+  position: absolute;
+}
 
 .btn {
   display: inline-flex;
@@ -311,6 +331,19 @@ section {
 
 .hero-solution:last-child {
   margin-bottom: 0;
+}
+
+.hero-bold-phrase {
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  transition: text-decoration-color 300ms var(--ease-out-quart);
+}
+
+.hero-bold-phrase:hover {
+  text-decoration-color: var(--text);
 }
 
 /* ============================================
@@ -822,6 +855,56 @@ section {
 }
 
 /* ============================================
+   Magnetic CTA Button
+   ============================================ */
+.cta .btn.is-visible {
+  --mag-x: 0;
+  --mag-y: 0;
+  --mag-scale: 1;
+  --mag-glow: 0;
+  position: relative;
+  transform: translate(
+      calc(var(--mag-x) * 1px),
+      calc(var(--mag-y) * 1px)
+    )
+    scale(var(--mag-scale));
+  transition:
+    transform 400ms cubic-bezier(0.33, 1, 0.68, 1),
+    box-shadow 400ms cubic-bezier(0.33, 1, 0.68, 1),
+    opacity 200ms var(--ease-out-quart);
+  will-change: transform;
+  z-index: 1;
+}
+
+.cta .btn.is-visible[data-magnetic-active] {
+  box-shadow: 0 0 calc(var(--mag-glow) * 40px) calc(var(--mag-glow) * 8px) rgba(37, 99, 235, calc(var(--mag-glow) * 0.35));
+  transition:
+    transform 180ms cubic-bezier(0.33, 1, 0.68, 1),
+    box-shadow 180ms cubic-bezier(0.33, 1, 0.68, 1),
+    opacity 200ms var(--ease-out-quart);
+}
+
+[data-theme="light"] .cta .btn.is-visible[data-magnetic-active] {
+  box-shadow: 0 0 calc(var(--mag-glow) * 40px) calc(var(--mag-glow) * 8px) rgba(29, 78, 216, calc(var(--mag-glow) * 0.25));
+}
+
+.cta .btn.is-visible .btn-text {
+  display: inline-block;
+  transform: translate(
+    calc(var(--mag-x) * 0.3px),
+    calc(var(--mag-y) * 0.3px)
+  );
+  transition: transform 180ms cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.cta .btn.is-visible:not([data-magnetic-active]) {
+  transition:
+    transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 600ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 200ms var(--ease-out-quart);
+}
+
+/* ============================================
    Reduced Motion
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -833,5 +916,28 @@ section {
 
   .logo-marquee-track {
     animation-play-state: paused;
+  }
+
+  .cta .btn.is-visible {
+    --mag-x: 0 !important;
+    --mag-y: 0 !important;
+    --mag-scale: 1 !important;
+    --mag-glow: 0 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    transition: opacity 200ms var(--ease-out-quart) !important;
+  }
+
+  .cta .btn.is-visible .btn-text {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-bold-phrase {
+    transition: none;
+  }
+
+  .header-avatar {
+    transition: none;
   }
 }
