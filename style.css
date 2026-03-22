@@ -5,6 +5,7 @@
   --bg: #0a0a0a;
   --text: #fcfcfa;
   --text-secondary: #999;
+  --accent: #2563eb;
   --border: rgba(255, 255, 255, 0.08);
 
   --font-heading: 'Satoshi', sans-serif;
@@ -31,6 +32,7 @@
     --bg: #fcfcfa;
     --text: #0a0a0a;
     --text-secondary: #555;
+    --accent: #1d4ed8;
     --border: rgba(0, 0, 0, 0.08);
   }
 }
@@ -97,8 +99,10 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: clamp(1.75rem, 4vw, 2rem);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
   font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
 }
 
 h2 {
@@ -216,7 +220,7 @@ section {
 }
 
 .hero h1 {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 .hero-tagline {
@@ -347,25 +351,17 @@ section {
   margin-bottom: var(--space-md);
 }
 
-.case-study-scope {
-  font-size: 15px;
-  color: var(--text-secondary);
-  margin-bottom: var(--space-md);
-  line-height: 1.6;
-  max-width: 55ch;
-}
-
-.case-study-scope em {
-  font-style: normal;
-  font-weight: 600;
-  color: var(--text);
-}
-
 .case-study-details {
   font-size: 15px;
   line-height: 1.7;
   color: var(--text-secondary);
   max-width: 55ch;
+}
+
+.case-study-details em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--text);
 }
 
 .case-study-details p {
@@ -481,6 +477,52 @@ section {
 }
 
 /* ============================================
+   FAQs
+   ============================================ */
+.faqs {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+}
+
+.faqs > .container > h2 {
+  margin-bottom: var(--space-2xl);
+}
+
+.faq {
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--border);
+}
+
+.faq:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq h3 {
+  margin-bottom: var(--space-md);
+}
+
+.faq-body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 55ch;
+}
+
+.faq-body p {
+  margin-bottom: var(--space-sm);
+}
+
+.faq-body p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-body em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ============================================
    CTA
    ============================================ */
 .cta {
@@ -503,7 +545,13 @@ section {
 .cta-body p { margin-bottom: var(--space-sm); }
 
 .cta .btn {
+  background: var(--accent);
+  color: #fff;
   margin-bottom: var(--space-lg);
+}
+
+.cta .btn:hover {
+  opacity: 0.9;
 }
 
 .cta-email {
