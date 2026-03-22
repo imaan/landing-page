@@ -77,7 +77,8 @@
             : "dark");
         document.documentElement.setAttribute("data-theme", theme);
         var tc = document.querySelector('meta[name="theme-color"]');
-        if (tc) tc.setAttribute("content", theme === "light" ? "#fcfcfa" : "#0a0a0a");
+        if (tc)
+          tc.setAttribute("content", theme === "light" ? "#fcfcfa" : "#0a0a0a");
       })();
     </script>
   </head>
@@ -153,7 +154,7 @@
             Things aren't working.<br />Bring me in.
           </h1>
           <p class="hero-tagline reveal">
-            I put out fires at remote B2B SaaS companies so leadership teams can
+            I put out the fires at remote B2B SaaS companies so you have time to
             get real work done.
           </p>
           <ul class="hero-problems reveal">
@@ -560,7 +561,6 @@
       </section>
     </main>
 
-
     <!-- Scroll Dot Nav (desktop) -->
     <nav class="scroll-nav" aria-label="Page sections">
       <a
@@ -613,7 +613,11 @@
           document.documentElement.setAttribute("data-theme", next);
           localStorage.setItem("theme", next);
           var tc = document.querySelector('meta[name="theme-color"]');
-          if (tc) tc.setAttribute("content", next === "light" ? "#fcfcfa" : "#0a0a0a");
+          if (tc)
+            tc.setAttribute(
+              "content",
+              next === "light" ? "#fcfcfa" : "#0a0a0a",
+            );
         });
     </script>
 
@@ -712,7 +716,8 @@
             e.preventDefault();
             var target = document.getElementById(dot.dataset.section);
             if (target) {
-              var top = target.getBoundingClientRect().top + window.scrollY - 100;
+              var top =
+                target.getBoundingClientRect().top + window.scrollY - 100;
               window.scrollTo({ top: top, behavior: "smooth" });
             }
           });
