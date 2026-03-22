@@ -716,7 +716,10 @@
           dot.addEventListener("click", function (e) {
             e.preventDefault();
             var target = document.getElementById(dot.dataset.section);
-            if (target) target.scrollIntoView({ behavior: "smooth" });
+            if (target) {
+              var top = target.getBoundingClientRect().top + window.scrollY - 100;
+              window.scrollTo({ top: top, behavior: "smooth" });
+            }
           });
         });
 
