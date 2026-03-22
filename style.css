@@ -162,9 +162,6 @@ section {
   align-items: center;
   gap: var(--space-sm);
   flex-shrink: 0;
-}
-
-.header-identity {
   cursor: pointer;
 }
 
@@ -774,7 +771,7 @@ section {
 }
 
 .scroll-nav-label {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-family: var(--font-heading);
   color: var(--text-secondary);
   opacity: 0;
