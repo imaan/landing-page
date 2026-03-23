@@ -154,7 +154,7 @@
             Things aren't working.<br />Bring me in.
           </h1>
           <p class="hero-tagline reveal">
-            I put out the fires at remote B2B SaaS companies so you have time to
+            I put out fires at remote B2B SaaS companies so leaders have time to
             get real work done.
           </p>
           <ul class="hero-problems reveal">
@@ -635,7 +635,11 @@
             document.documentElement.setAttribute("data-theme", next);
             localStorage.setItem("theme", next);
             var tc = document.querySelector('meta[name="theme-color"]');
-            if (tc) tc.setAttribute("content", next === "light" ? "#fcfcfa" : "#0a0a0a");
+            if (tc)
+              tc.setAttribute(
+                "content",
+                next === "light" ? "#fcfcfa" : "#0a0a0a",
+              );
             setTimeout(function () {
               toggle.classList.remove("is-switching");
             }, 400);
@@ -769,7 +773,8 @@
     <!-- Magnetic CTA Button -->
     <script>
       (function () {
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+          return;
         var btn = document.querySelector(".cta .btn");
         if (!btn) return;
         var MAGNETIC_RADIUS = 120;
@@ -777,23 +782,44 @@
         var SCALE_BOOST = 1.04;
         function getCenter() {
           var rect = btn.getBoundingClientRect();
-          return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2, w: rect.width, h: rect.height };
+          return {
+            x: rect.left + rect.width / 2,
+            y: rect.top + rect.height / 2,
+            w: rect.width,
+            h: rect.height,
+          };
         }
-        var isActive = false, rafId = null, mouseX = 0, mouseY = 0;
+        var isActive = false,
+          rafId = null,
+          mouseX = 0,
+          mouseY = 0;
         function update() {
           var c = getCenter();
-          var dx = mouseX - c.x, dy = mouseY - c.y;
+          var dx = mouseX - c.x,
+            dy = mouseY - c.y;
           var dist = Math.sqrt(dx * dx + dy * dy);
           var threshold = MAGNETIC_RADIUS + Math.max(c.w, c.h) / 2;
           if (dist < threshold) {
             var strength = 1 - Math.min(dist / threshold, 1);
             var eased = strength * strength * strength;
             var angle = Math.atan2(dy, dx);
-            btn.style.setProperty("--mag-x", (Math.cos(angle) * eased * MAX_DISPLACEMENT).toFixed(2));
-            btn.style.setProperty("--mag-y", (Math.sin(angle) * eased * MAX_DISPLACEMENT).toFixed(2));
-            btn.style.setProperty("--mag-scale", (1 + (SCALE_BOOST - 1) * eased).toFixed(4));
+            btn.style.setProperty(
+              "--mag-x",
+              (Math.cos(angle) * eased * MAX_DISPLACEMENT).toFixed(2),
+            );
+            btn.style.setProperty(
+              "--mag-y",
+              (Math.sin(angle) * eased * MAX_DISPLACEMENT).toFixed(2),
+            );
+            btn.style.setProperty(
+              "--mag-scale",
+              (1 + (SCALE_BOOST - 1) * eased).toFixed(4),
+            );
             btn.style.setProperty("--mag-glow", eased.toFixed(4));
-            if (!isActive) { btn.setAttribute("data-magnetic-active", ""); isActive = true; }
+            if (!isActive) {
+              btn.setAttribute("data-magnetic-active", "");
+              isActive = true;
+            }
           } else if (isActive) {
             btn.style.setProperty("--mag-x", "0");
             btn.style.setProperty("--mag-y", "0");
@@ -804,10 +830,15 @@
           }
           rafId = null;
         }
-        document.addEventListener("mousemove", function (e) {
-          mouseX = e.clientX; mouseY = e.clientY;
-          if (!rafId) rafId = requestAnimationFrame(update);
-        }, { passive: true });
+        document.addEventListener(
+          "mousemove",
+          function (e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!rafId) rafId = requestAnimationFrame(update);
+          },
+          { passive: true },
+        );
         document.addEventListener("mouseleave", function () {
           if (isActive) {
             btn.style.setProperty("--mag-x", "0");
