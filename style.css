@@ -501,7 +501,7 @@ section {
 
 .testimonial-pullquote {
   font-family: var(--font-heading);
-  font-size: 1.375rem;
+  font-size: clamp(1.125rem, 2.8vw, 1.375rem);
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: -0.02em;
@@ -813,6 +813,27 @@ section {
     text-wrap: balance;
   }
 
+  .faq {
+    padding: var(--space-lg) 0;
+  }
+
+  .case-studies {
+    padding-top: var(--space-3xl);
+  }
+
+  .testimonials {
+    padding-top: var(--space-3xl);
+  }
+
+  .faqs {
+    padding-top: var(--space-3xl);
+  }
+
+  .cta {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
   .logo-marquee-track img {
     height: 28px;
     margin: 0 20px;
@@ -829,6 +850,51 @@ section {
 
   .scroll-nav {
     display: none;
+  }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  section {
+    padding: var(--space-xl) 0;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .header-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header-identity {
+    gap: 6px;
+  }
+
+  .header-name {
+    font-size: 0.8125rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.6875rem;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .btn-ghost {
+    padding: 10px 14px;
+    font-size: 0.8125rem;
   }
 }
 
@@ -920,5 +986,63 @@ section {
 
   .header-avatar {
     transition: none;
+  }
+}
+
+/* ============================================
+   Print
+   ============================================ */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+  }
+
+  .site-header {
+    position: static;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .scroll-progress,
+  .scroll-nav,
+  .theme-toggle,
+  .btn-ghost,
+  .logo-marquee {
+    display: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .case-study-card {
+    break-inside: avoid;
+    border-color: #ccc;
+  }
+
+  .testimonial {
+    break-inside: avoid;
+  }
+
+  .faq {
+    break-inside: avoid;
+  }
+
+  .faq[open] .faq-answer {
+    grid-template-rows: 1fr;
+  }
+
+  .cta .btn {
+    background: none;
+    color: #000;
+    border: 2px solid #000;
+    transform: none !important;
+  }
+
+  .cta-email a::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
   }
 }
