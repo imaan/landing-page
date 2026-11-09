@@ -1,86 +1,67 @@
-<!DOCTYPE html><html lang="en"><head>
-
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Imaan Minaii</title>
-<meta name="description" content="Sport, startups, privacy. Building tools for people who could build before AI.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="site.css">
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Imaan Minaii — Tools that people love to use</title>
+  <meta name="description" content="Tools that people love to use. Projects by Imaan Minaii: 20% Better and Sponsorship Activations.">
+  <script>document.documentElement.dataset.mode = new URLSearchParams(location.search).get("mode") === "light" ? "light" : "dark";</script>
+  <script src="background.js" defer></script>
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/newsreader-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="project-hover.css"><script src="project-hover.js" defer></script><link rel="canonical" href="https://imaan.co/">
 </head>
-<body data-screen-label="Homepage" style="">
-
-<main class="home">
-
-  <div class="name">Imaan</div>
-
-  <section class="intro">
-    <p style=""><em>Sports & startups.</em> These provide me with a mixture of creativity and competitiveness that I just can't find anywhere else.<div style="height: 2px"><br></div><div style="">Currently building <a href="https://abliterate.ai" class="link">Abliterate</a>, which I hope will become your new private, uncensored AI homepage.&nbsp;</div></p>
-    <p style="">Outside of work the majority of my time is currently spent in the gym as I'm working on returning to sport after my second ACL tear.&nbsp;<div style="height: 2px"><br></div><div>Any time left over is spent eating great food with great people.</div></p>
-  </section>
-
-  <section class="grid">
-    <div class="block" hidden>
-      <div class="eyebrow">Building</div>
-      <div class="item">
-        <div class="name-row"><a href="https://abliterate.ai">Abliterate</a></div>
-        <div class="desc">Your private, uncensored homepage to the internet.</div>
-      </div>
+<body class="personal-page" data-effect="glitch">
+  <div class="ambient" aria-hidden="true"><div class="depth depth-far"><div class="layer layer-far"></div></div><div class="depth depth-near"><div class="layer layer-near"></div></div><div class="depth depth-glints"><div class="layer layer-glints"></div></div></div>
+  <main class="home">
+    <header class="identity">
+    <div class="identity-row">
+      <h1 class="name">Imaan</h1>
+      <div class="appearance-controls"><button id="mode-toggle" aria-label="Switch to light mode" title="Switch to light mode"><svg class="sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1m0-15.6-2.1 2.1M6.3 17.7l-2.1 2.1"/></svg><svg class="moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg></button></div>
     </div>
 
-    <div class="block" hidden>
-      <div class="eyebrow">Projects</div>
-      <div class="item">
-        <div class="name-row"><a href="#">Builders Log</a><span class="arr">↗</span></div>
-        <div class="desc">Turn your coding-agent history into social posts.</div>
+    <section class="intro" aria-label="About me">
+      <p><em>Tools that people love to use</em></p>
+    </section>
+    </header>
+
+    <section class="grid" aria-labelledby="projects">
+      <div class="block">
+        <h2 class="eyebrow" id="projects">Projects</h2>
+        <div class="project-list">
+        <a class="item project-link" href="20-percent-better.html" aria-labelledby="20-percent-better-name" aria-describedby="20-percent-better-desc">
+          <span class="name-row" id="20-percent-better-name"><span class="project-title">20% Better<span class="glitch-copy" aria-hidden="true">20% Better</span><span class="glitch-copy" aria-hidden="true">20% Better</span></span><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M6 6h12v12"/></svg></span></span>
+          <span class="desc" id="20-percent-better-desc">Improve your business, one practical step at a time.</span>
+        </a>
+        <a class="item project-link" href="sponsorship.html" aria-labelledby="sponsorship-name" aria-describedby="sponsorship-desc">
+          <span class="name-row" id="sponsorship-name"><span class="project-title">Sponsorship Activations<span class="glitch-copy" aria-hidden="true">Sponsorship Activations</span><span class="glitch-copy" aria-hidden="true">Sponsorship Activations</span></span><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M6 6h12v12"/></svg></span></span>
+          <span class="desc" id="sponsorship-desc">Turn sponsored content into ideas that engage your audience.</span>
+        </a>
+        </div>
       </div>
-      <div class="item">
-        <div class="name-row"><a href="#">PT Module</a><span class="arr">↗</span></div>
-        <div class="desc">Coaching software for trainers who just want to train.</div>
+    </section>
+
+    <section class="section" aria-labelledby="experience">
+      <h2 class="eyebrow" id="experience">Previously</h2>
+      <p>Past clients include <a href="https://www.spotify.com/">Spotify</a>, <a href="https://provable.com/">Provable</a>, <a href="https://www.hsfkramer.com/">Herbert Smith Freehills</a> and the <a href="https://www.fca.org.uk/">Financial Conduct Authority</a>.</p>
+    </section>
+
+    <section class="section contact" aria-labelledby="connect">
+      <h2 class="eyebrow" id="connect">Connect</h2>
+      <p>If you’re interested in working together, I’d love to hear from you.</p>
+      <div class="contact-links">
+        <a href="mailto:hello@imaan.co" class="contact-icon" aria-label="Email Imaan at hello@imaan.co" title="Email Imaan">
+          <svg viewBox="0 3 24 18" width="24" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="m2 5 10 8 10-8"/></svg>
+        </a>
+        <a href="https://x.com/imaanco" class="contact-icon" aria-label="Imaan on X" title="Imaan on X">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933ZM17.61 20.644h2.039L6.486 3.24H4.298L17.61 20.644Z"/></svg>
+        </a>
       </div>
-      <div class="item">
-        <div class="name-row"><a href="#">Toolbelt</a><span class="arr">↗</span></div>
-        <div class="desc">Personal suite of tools for building apps people love.</div>
-      </div>
-    </div>
-
-    <div class="block" hidden>
-      <div class="eyebrow">Writing</div>
-      <div class="item">
-        <div class="name-row"><a href="notes-on-ai-velocity.html">Notes on AI velocity</a></div>
-        <div class="desc">Why 10× beats 100 features.</div>
-      </div>
-      <div class="item">
-        <div class="name-row"><a href="#">Returning from injury</a></div>
-        <div class="desc">Six months off the pitch.</div>
-      </div>
-      <div class="item">
-        <div class="name-row"><a href="writing.html">All writing</a></div>
-        <div class="desc">Infrequent thoughts.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" hidden>
-    <div class="eyebrow">Now</div>
-    <p style="">Returning from injury — slowly, mindfully. Most evenings are spent organising matches, training, or cooking.</p>
-    <p style="">Building three things at once is a discipline in saying no. I keep a short list of things that earn their place and protect the rest of the day for deep work.</p>
-  </section>
-
-  <section class="section">
-    <div class="eyebrow">Connect</div>
-    <p>Reach me at <a href="https://x.com/imaanco" class="link" style="">@imaanco</a> or <a href="mailto:hello@imaan.co" class="link" style="">hello@imaan.co</a>.</p>
-  </section>
-
-</main>
-
-<footer class="home-foot">
-  <span>2026</span>
-</footer>
-
-
-
-</body></html>
+    </section>
+  </main>
+</body>
+</html>
