@@ -1,0 +1,46 @@
+.previously { min-width: 0; }
+.previously-heading { display: flex; align-items: center; min-height: 44px; margin-top: -12px; }
+.home .previously-heading .eyebrow { margin-bottom: 0; }
+.client-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  scroll-behavior: auto;
+  overflow-anchor: none;
+  border-radius: 2px;
+}
+.client-viewport::-webkit-scrollbar { display: none; }
+.client-viewport:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
+.client-track { display: flex; width: max-content; }
+.client-group {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex: none;
+  list-style: none;
+  margin: 0;
+  padding: 8px 32px 8px 0;
+}
+.client-group li { margin: 0; padding: 0; flex: none; }
+.client-group a { display: flex; align-items: center; justify-content: center; height: 64px; padding: 6px; color: var(--text-mute); text-decoration: none; }
+.client-group a:focus-visible { outline-offset: -2px; }
+.client-mark { display: block; background: currentColor; mask: var(--client-logo) center / contain no-repeat; flex: none; }
+.client-spotify { --client-logo: url('assets/clients/spotify.png'); width: 128px; height: 36px; }
+.client-provable { --client-logo: url('assets/clients/provable.svg'); width: 140px; height: 32px; }
+.client-hsf { --client-logo: url('assets/clients/herbert-smith-freehills.svg'); width: 150px; height: 52px; }
+.client-fca { --client-logo: url('assets/clients/fca.png'); width: 132px; height: 42px; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px !important; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.home .previously .visually-hidden::before { content: none; }
+@media (hover: hover) and (pointer: fine) {
+  .client-group a:hover { color: var(--text); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .client-group[aria-hidden] { display: none; }
+  .client-viewport { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
+  .client-viewport::-webkit-scrollbar { display: block; height: 4px; }
+  .client-viewport::-webkit-scrollbar-thumb { background: var(--border-strong); }
+}
+@media (forced-colors: active) {
+  .client-mark { background: LinkText; forced-color-adjust: none; }
+}

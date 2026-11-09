@@ -1,0 +1,33 @@
+{
+  "retrieved_date": "2026-11-09",
+  "assets": [
+    {
+      "file": "spotify.png",
+      "asset_url": "https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Full_Logo_RGB_Green.png",
+      "source_page": "https://newsroom.spotify.com/media-kit/logo-and-brand-assets/",
+      "display_notes": "Unmodified original; monochrome CSS alpha mask.",
+      "sha256": "691d3c7145702c0533b651efa6c29af57235e2ba7a2f7d54f57e650086d8915c"
+    },
+    {
+      "file": "provable.svg",
+      "asset_url": "https://provable.com/images/provable-logo-big.svg",
+      "source_page": "https://provable.com/",
+      "display_notes": "Original paths; removed decorative group opacity 0.08 for monochrome alpha mask.",
+      "sha256": "4ca5ff2cb8d67a0cf043edff67a81681ba306a5e40ff28b90901dc8f26912890"
+    },
+    {
+      "file": "herbert-smith-freehills.svg",
+      "asset_url": "https://logotyp.us/file/herbert-smith-freehills.svg",
+      "source_page": "https://logotyp.us/logo/herbert-smith-freehills/",
+      "display_notes": "Historic mark from third-party archive; paths intact, viewBox tightened to artwork bounds; monochrome alpha mask.",
+      "sha256": "37e2bf8ee597860648daaf3874b72740b7f9a2c72704d14030ed576e17d397b9"
+    },
+    {
+      "file": "fca.png",
+      "asset_url": "https://www.fca.org.uk/themes/custom/fca/images/logo.png",
+      "source_page": "https://www.fca.org.uk/",
+      "display_notes": "Unmodified official-site asset; monochrome CSS alpha mask. FCA states website logo use requires authorisation: https://www.fca.org.uk/contact/logos-photos . Confirm before public release.",
+      "sha256": "b496e1dd3a7bf10198e335bb0cb647bb372b16113faadf19783477b5e866a7e4"
+    }
+  ]
+}

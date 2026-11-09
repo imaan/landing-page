@@ -13,6 +13,8 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="background.css">
+  <link rel="stylesheet" href="previously.css">
+  <script src="previously.js" defer></script>
 <link rel="stylesheet" href="project-hover.css"><script src="project-hover.js" defer></script><link rel="canonical" href="https://imaan.co/">
 </head>
 <body class="personal-page" data-effect="glitch">
@@ -45,14 +47,25 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="experience">
-      <h2 class="eyebrow" id="experience">Previously</h2>
-      <p>Past clients include <a href="https://www.spotify.com/">Spotify</a>, <a href="https://provable.com/">Provable</a>, <a href="https://www.hsfkramer.com/">Herbert Smith Freehills</a> and the <a href="https://www.fca.org.uk/">Financial Conduct Authority</a>.</p>
+    <section class="section previously" aria-labelledby="experience">
+      <div class="previously-heading">
+        <h2 class="eyebrow" id="experience">Previously</h2>
+      </div>
+      <p class="visually-hidden" id="client-instructions">Past clients. Scroll horizontally to explore. When focused, use the left and right arrow keys. Automatic movement pauses while you interact.</p>
+      <div class="client-viewport" id="client-logos" role="region" aria-label="Past clients" aria-describedby="client-instructions" tabindex="0">
+        <div class="client-track">
+          <ul class="client-group">
+            <li><a href="https://www.spotify.com/" aria-label="Spotify"><span class="client-mark client-spotify" aria-hidden="true"></span></a></li>
+            <li><a href="https://provable.com/" aria-label="Provable"><span class="client-mark client-provable" aria-hidden="true"></span></a></li>
+            <li><a href="https://www.hsfkramer.com/" aria-label="Herbert Smith Freehills"><span class="client-mark client-hsf" aria-hidden="true"></span></a></li>
+            <li><a href="https://www.fca.org.uk/" aria-label="Financial Conduct Authority"><span class="client-mark client-fca" aria-hidden="true"></span></a></li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section class="section contact" aria-labelledby="connect">
       <h2 class="eyebrow" id="connect">Connect</h2>
-      <p>If you’re interested in working together, I’d love to hear from you.</p>
       <div class="contact-links">
         <a href="mailto:hello@imaan.co" class="contact-icon" aria-label="Email Imaan at hello@imaan.co" title="Email Imaan">
           <svg viewBox="0 3 24 18" width="24" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="m2 5 10 8 10-8"/></svg>
